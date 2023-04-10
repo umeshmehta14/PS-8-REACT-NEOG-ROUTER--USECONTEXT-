@@ -8,15 +8,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import {
   DataContext,
   DataProvider,
-} from "./Questions/Question1_5.js/Contexts/DataContext";
+} from "./Contexts/DataContext";
 import {
   CartContext,
   CartProvider,
-} from "./Questions/Question1_5.js/Contexts/CartContext";
+} from "./Contexts/CartContext";
 import {
   WishListContext,
   WishListProvider,
-} from "./Questions/Question1_5.js/Contexts/WishListContext";
+} from "./Contexts/WishListContext";
 
 export { DataContext };
 export { CartContext };
