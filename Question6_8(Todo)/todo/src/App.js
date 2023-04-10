@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useContext } from 'react';
 import './App.css';
+import { DataContext } from './Contexts/DataContext';
+import Navbar from './Components/Navbar';
+import {Routes, Route} from "react-router-dom"
+import Todos from './Pages/Todos';
+import OpenTodo from './Pages/OpenTodo';
+import DoneTodo from './Pages/DoneTodo';
+import ExpandTodo from './Components/ExpandTodo';
 
 function App() {
+  const {error} = useContext(DataContext);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!error && <Navbar/>}
+      <div>
+        <Routes>
+            <Route path="/" element={<Todos/>}/>
+            <Route path="/opentodo" element={<OpenTodo/>}/>
+            <Route path="/donetodo" element={<DoneTodo/>}/>
+            <Route path="/expandtodo/:todoId" element={<ExpandTodo/>}/>
+        </Routes>
+      </div>
     </div>
   );
 }
