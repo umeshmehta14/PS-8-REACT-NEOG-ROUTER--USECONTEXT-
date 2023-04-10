@@ -1,6 +1,7 @@
 import React, { useContext} from 'react'
 import { NavLink } from 'react-router-dom';
 import { DataContext } from '../Contexts/DataContext';
+import { CartContext } from '../Contexts/CartContext';
 
 
 //1. Create an e-commerce App in React with different routes for:
@@ -12,6 +13,7 @@ import { DataContext } from '../Contexts/DataContext';
 // 2. In the above question, in your product listing page add a “Add to Cart” button along with each product. On click of the button, add that item to your cart. The added product should be visible in the My Cart page. Show the total number of items available in the cart at the top of the page. Do this using context.
 const ProductListing = () => {
   const {products, loading,error} = useContext(DataContext);
+  const {cart, HandleCart} = useContext(CartContext);
   
   return (
     <div>
@@ -26,6 +28,10 @@ const ProductListing = () => {
               <p>{description}</p>
               <p>{price}</p>
               <NavLink to={`/aboutitem/${id}`} >Visit Item</NavLink>
+
+             <p>
+               <button onClick={()=>HandleCart(element)}>Add to Cart</button>
+              </p>
             </div>
           })
         }
