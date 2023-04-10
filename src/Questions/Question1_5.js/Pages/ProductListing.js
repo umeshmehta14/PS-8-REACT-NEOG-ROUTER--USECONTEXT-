@@ -18,6 +18,8 @@ import AddWishlistBtn from "../Components/AddWishlistBtn";
 
 //4. In the above question, in your product listing page add a “Add to Wishlist” button along with each product. On click of the button, add that item to your Wishlist page. The added product should be visible in the My Wishlist page. Show the total number of items available in the Wishlist at the top of the page. Do this using context.
 
+//5. In the question above, add a “Remove from Wishlist” button in the My Wishlist page for each product. On click of this button, the product should be removed from the Wishlist.
+
 
 const ProductListing = () => {
   const { products, loading, error } = useContext(DataContext);
