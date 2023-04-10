@@ -13,9 +13,14 @@ import {
   CartContext,
   CartProvider,
 } from "./Questions/Question1_5.js/Contexts/CartContext";
+import {
+  WishListContext,
+  WishListProvider,
+} from "./Questions/Question1_5.js/Contexts/WishListContext";
 
 export { DataContext };
 export { CartContext };
+export { WishListContext };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,7 +28,9 @@ root.render(
     <Router>
       <DataProvider>
         <CartProvider>
-          <App />
+          <WishListProvider>
+            <App />
+          </WishListProvider>
         </CartProvider>
       </DataProvider>
     </Router>
