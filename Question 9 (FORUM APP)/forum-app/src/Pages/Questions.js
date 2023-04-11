@@ -3,8 +3,9 @@ import { DataContext } from '../Contexts/DataContext'
 import { NavLink } from 'react-router-dom';
 
 const Questions = () => {
-    const {data} = useContext(DataContext);
-  return (
+    const {data, loading} = useContext(DataContext);
+  return (<>
+  <p>{loading && "Loading..."}</p>
     <div>
         {
             data.map(({id ,question})=> {
@@ -18,6 +19,7 @@ const Questions = () => {
         }
       
     </div>
+        </>
   )
 }
 
