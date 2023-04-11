@@ -19,11 +19,16 @@ export const DataProvider = ({children})=>{
           setLoading(false);
         }
       }
+
+      const HandleDoneTodo = (item) =>{
+        const updatedTodo = todoList.map((currElement)=> currElement.id === item.id ? {...currElement, isCompleted: true} : currElement);
+        setTodoList(updatedTodo);
+      }
     
       useEffect(()=>{
         getData()
       },[]);
-    return <DataContext.Provider value={{todoList, loading,error}}>
+    return <DataContext.Provider value={{todoList, loading,error, HandleDoneTodo}}>
         {children}
     </DataContext.Provider>
 }
